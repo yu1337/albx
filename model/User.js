@@ -96,15 +96,15 @@ User.findOne({ 'email': 'itheima@itcast.cn' }).then(async result => {
 		// 使用盐对密码进行加密
 		const password = bcrypt.hashSync('123456', salt);
 
-		const user = await User.create({
-			nickName: 'itcast',
-			email: 'itheima@itcast.cn',
-			password: password,
-			role: 'admin',
-			avatar: null,
-			createTime: new Date,
-			status: 1
-		});
+		// const user = await User.create({
+		// 	nickName: 'itcast',
+		// 	email: 'itheima@itcast.cn',
+		// 	password: password,
+		// 	role: 'admin',
+		// 	avatar: null,
+		// 	createTime: new Date,
+		// 	status: 1
+		// });
 	}
 })
 
