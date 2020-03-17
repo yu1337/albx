@@ -124,3 +124,49 @@ $('tbody').on('click', '#btnDelete', function () {
         }
     })
 })
+
+// 多个删除
+$('#deleteAll').on('change', function () {
+    $('tbody input').prop('checked', $(this).prop('checked'));
+    if ($(this).prop('checked')) {
+        $('#deleteMany').show();
+    } else {
+        $('#deleteMany').hide();
+    }
+});
+
+$('tbody').on('change', 'input', function () {
+    var l = $('tbody input').length;
+    var n = $('tbody :checked').length;
+    $('#deleteAll').prop('checked', l === n)
+    if (l == n) {
+        $('#deleteAll').prop('checked', true);
+    } else {
+        $('#deleteAll').prop('checked', false)
+    }
+    if (n > 0) {
+        $('#deleteMany').show();
+    } else {
+        $('#deleteMany').hide();
+    }
+})
+
+$('#deleteMany').on('click', function () {
+    let arr = [];
+    $('#check:checked').each(function ( index,item) {
+        arr.push($(item).parents('tr').find('#btnEdit').attr('data-id'));
+    })
+    if (confirm('确定要删除吗？')) {
+        $.ajax({
+            type: 'delete',
+            url: '/users/' + arr.join('-'),
+            success: function (result) {
+                result.forEach(element => {
+                    var index = userArr.findIndex(item => item._id == element._id)
+                    userArr.splice(index, 1)
+                });
+                render();
+            }
+        })
+    }
+})
