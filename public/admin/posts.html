@@ -5,6 +5,7 @@
 
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
   <meta charset="utf-8">
   <title>Posts &laquo; Admin</title>
@@ -14,6 +15,7 @@
   <link rel="stylesheet" href="../assets/css/admin.css">
   <script src="../assets/vendors/nprogress/nprogress.js"></script>
 </head>
+
 <body>
   <script>NProgress.start()</script>
 
@@ -141,7 +143,24 @@
 
   <script src="../assets/vendors/jquery/jquery.js"></script>
   <script src="../assets/vendors/bootstrap/js/bootstrap.js"></script>
+  <script src="../assets/vendors/art-template/template-web.js"></script>
+  <script type="text/html" id="posts">
+    {{each data.records}}
+        <tr>
+          <td>{{$value.title}}</td>
+          <td>{{$value.author.nackName}}</td>
+          <td>{{$value.category.title}}</td>
+          <td class="text-center">{{dataformat}}</td>
+          <td class="text-center">已发布</td>
+          <td class="text-center">
+            <a href="javascript:;" class="btn btn-default btn-xs">编辑</a>
+            <a href="javascript:;" class="btn btn-danger btn-xs">删除</a>
+          </td>
+        </tr>
+    {{/each}}
+  </script>
   <script src="../assets/js/logout.js"></script>
   <script>NProgress.done()</script>
 </body>
+
 </html>
