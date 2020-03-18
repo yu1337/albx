@@ -1,6 +1,9 @@
 //获取筛选条件
-var id = $('#categories').val();
+var cateId = $('#categories').val();
 var state = $('#state').val();
+
+//获取当前页码
+var currentPage = 1;
 
 //分类
 $.ajax({
@@ -18,9 +21,9 @@ function render(state, category, page = 1) {
         type: 'get',
         url: '/posts',
         data: {
-            page: page,
             state: state,
             category: category,
+            page: page,
         },
         success: function (result) {
             var html = template('posts', { data: result.records });
@@ -32,20 +35,42 @@ function render(state, category, page = 1) {
 }
 
 //渲染所有文章
-render(state, id)
+render(state, cateId)
 
 //分页功能
 function page(index) {
-    render(state, id, index)
+    currentPage = index;
+    render(state, cateId, index);
 }
 
 //筛选
 $('form').on('click', '#sizer', function () {
-    // console.log(id, state);
-    id = $('#categories').val();
+    // console.log(cateId, state);
+    cateId = $('#categories').val();
     state = $('#state').val();
-    // console.log(id, state);
+    // console.log(cateId, state);
     // return
-    render(state,id);
+    render(state, cateId);
 })
 
+//删除
+$('tbody').on('click', '#delete', function () {
+    let id = $(this).attr('data-id');
+    $.ajax({
+        type: 'delete',
+        url: '/posts/' + id,
+        success: function (result) {
+            var index = $('tbody tr').length;
+            if (index == 1) {
+                if (currentPage == 1) {
+                    render(state, cateId, currentPage);
+                } else {
+                    render(state, cateId, currentPage - 1);
+                    currentPage = currentPage - 1;
+                }
+            } else if (index == 2) {
+                render(state, cateId, currentPage);
+            }
+        }
+    })
+})
