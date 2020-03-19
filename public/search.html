@@ -1,20 +1,3 @@
-<script>
-  var cid = jungle('id');
-  function jungle(name) {
-    var data = location.search.substr(1).split('&');
-    for (var i = 0; i < data.length; i++) {
-      var str = data[0].split('=');
-      if (str[0] == name) {
-        // console.log(str[1]);
-        return str[1];
-      }
-    }
-    return -1;
-  }
-  if (cid == -1) {
-    location.href = '/index.html'
-  }
-</script>
 
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -148,17 +131,29 @@
       {{/each}}
   </script>
   <script>
+    var keys = jungle('key');
+    function jungle(name) {
+      var data = location.search.substr(1).split('&');
+      for (var i = 0; i < data.length; i++) {
+        var str = data[0].split('=');
+        if (str[0] == name) {
+          // console.log(str[1]);
+          return str[1];
+        }
+      }
+      return -1;
+    }
     // 通过分类获取文章
     $.ajax({
       type: 'get',
-      url: '/posts/category/' + cid,
+      url: '/posts/search/' + keys,
       success: function (result) {
         // console.log(result);
         var html = template('news', { data: result });
         document.querySelector('.new').innerHTML = html
       }
     })
-  
+
   </script>
 
   <script src="./assets/js/random.js"></script>

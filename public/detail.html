@@ -1,5 +1,24 @@
+<script>
+  var cid = jungle('id');
+  function jungle(name) {
+    var data = location.search.substr(1).split('&');
+    for (var i = 0; i < data.length; i++) {
+      var str = data[0].split('=');
+      if (str[0] == name) {
+        console.log(str[1]);
+        return str[1];
+      }
+    }
+    return -1;
+  }
+  if (cid == -1) {
+    location.reload = '/index.html'
+  }
+</script>
+
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,23 +26,18 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/vendors/font-awesome/css/font-awesome.css">
 </head>
+
 <body>
   <div class="wrapper">
     <div class="topnav">
-      <ul>
-        <li><a href="javascript:;"><i class="fa fa-glass"></i>奇趣事</a></li>
-        <li><a href="javascript:;"><i class="fa fa-phone"></i>潮科技</a></li>
-        <li><a href="javascript:;"><i class="fa fa-fire"></i>会生活</a></li>
-        <li><a href="javascript:;"><i class="fa fa-gift"></i>美奇迹</a></li>
+      <ul class="nav-category">
+
       </ul>
     </div>
     <div class="header">
       <h1 class="logo"><a href="index.html"><img src="assets/img/logo.png" alt=""></a></h1>
-      <ul class="nav">
-        <li><a href="javascript:;"><i class="fa fa-glass"></i>奇趣事</a></li>
-        <li><a href="javascript:;"><i class="fa fa-phone"></i>潮科技</a></li>
-        <li><a href="javascript:;"><i class="fa fa-fire"></i>会生活</a></li>
-        <li><a href="javascript:;"><i class="fa fa-gift"></i>美奇迹</a></li>
+      <ul class="nav nav-category">
+
       </ul>
       <div class="search">
         <form>
@@ -45,189 +59,203 @@
       <div class="widgets">
         <h4>随机推荐</h4>
         <ul class="body random">
-          <li>
-            <a href="javascript:;">
-              <p class="title">废灯泡的14种玩法 妹子见了都会心动</p>
-              <p class="reading">阅读(819)</p>
-              <div class="pic">
-                <img src="uploads/widget_1.jpg" alt="">
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:;">
-              <p class="title">可爱卡通造型 iPhone 6防水手机套</p>
-              <p class="reading">阅读(819)</p>
-              <div class="pic">
-                <img src="uploads/widget_2.jpg" alt="">
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:;">
-              <p class="title">变废为宝！将手机旧电池变为充电宝的Better</p>
-              <p class="reading">阅读(819)</p>
-              <div class="pic">
-                <img src="uploads/widget_3.jpg" alt="">
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:;">
-              <p class="title">老外偷拍桂林芦笛岩洞 美如“地下彩虹”</p>
-              <p class="reading">阅读(819)</p>
-              <div class="pic">
-                <img src="uploads/widget_4.jpg" alt="">
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:;">
-              <p class="title">doge神烦狗打底南瓜裤 就是如此魔性</p>
-              <p class="reading">阅读(819)</p>
-              <div class="pic">
-                <img src="uploads/widget_5.jpg" alt="">
-              </div>
-            </a>
-          </li>
+
         </ul>
       </div>
       <div class="widgets">
         <h4>最新评论</h4>
         <ul class="body discuz">
-          <li>
-            <a href="javascript:;">
-              <div class="avatar">
-                <img src="uploads/avatar_1.jpg" alt="">
-              </div>
-              <div class="txt">
-                <p>
-                  <span>鲜活</span>2020-02-01说:
-                </p>
-                <p>挺会玩的</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:;">
-              <div class="avatar">
-                <img src="uploads/avatar_1.jpg" alt="">
-              </div>
-              <div class="txt">
-                <p>
-                  <span>鲜活</span>2020-02-01说:
-                </p>
-                <p>挺会玩的</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:;">
-              <div class="avatar">
-                <img src="uploads/avatar_2.jpg" alt="">
-              </div>
-              <div class="txt">
-                <p>
-                  <span>鲜活</span>2020-02-01说:
-                </p>
-                <p>挺会玩的</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:;">
-              <div class="avatar">
-                <img src="uploads/avatar_1.jpg" alt="">
-              </div>
-              <div class="txt">
-                <p>
-                  <span>鲜活</span>2020-02-01说:
-                </p>
-                <p>挺会玩的</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:;">
-              <div class="avatar">
-                <img src="uploads/avatar_2.jpg" alt="">
-              </div>
-              <div class="txt">
-                <p>
-                  <span>鲜活</span>2020-02-01说:
-                </p>
-                <p>挺会玩的</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:;">
-              <div class="avatar">
-                <img src="uploads/avatar_1.jpg" alt="">
-              </div>
-              <div class="txt">
-                <p>
-                  <span>鲜活</span>2020-02-01说:
-                </p>
-                <p>挺会玩的</p>
-              </div>
-            </a>
-          </li>
+
         </ul>
       </div>
     </div>
     <div class="content">
       <div class="article">
-        <div class="breadcrumb">
-          <dl>
-            <dt>当前位置：</dt>
-            <dd><a href="javascript:;">奇趣事</a></dd>
-            <dd>变废为宝！将手机旧电池变为充电宝的Better RE移动电源</dd>
-          </dl>
-        </div>
-        <h2 class="title">
-          <a href="javascript:;">又现酒窝夹笔盖新技能 城里人是不让人活了！</a>
-        </h2>
-        <div class="meta">
-          <span>DUX主题小秘 发布于 2020-06-29</span>
-          <span>分类: <a href="javascript:;">奇趣事</a></span>
-          <span>阅读: (2421)</span>
-          <span>评论: (143)</span>
-        </div>
+
       </div>
+
+      <div id="comment">
+
+      </div>
+
       <div class="panel hots">
-        <h3>热门推荐</h3>
-        <ul>
-          <li>
-            <a href="javascript:;">
-              <img src="uploads/hots_2.jpg" alt="">
-              <span>星球大战:原力觉醒视频演示 电影票68</span>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:;">
-              <img src="uploads/hots_3.jpg" alt="">
-              <span>你敢骑吗？全球第一辆全功能3D打印摩托车亮相</span>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:;">
-              <img src="uploads/hots_4.jpg" alt="">
-              <span>又现酒窝夹笔盖新技能 城里人是不让人活了！</span>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:;">
-              <img src="uploads/hots_5.jpg" alt="">
-              <span>实在太邪恶！照亮妹纸绝对领域与私处</span>
-            </a>
-          </li>
-        </ul>
+
       </div>
     </div>
     <div class="footer">
       <p>© 2016 XIU主题演示 本站主题由 themebetter 提供</p>
     </div>
   </div>
+  <script src="./assets/vendors/art-template/template-web.js"></script>
+  <script src="./assets/vendors/jquery/jquery.min.js"></script>
+  <!-- 当前文案 -->
+  <script type="text/html" id="posthtml">
+          <div class="breadcrumb">
+            <dl>
+              <dt>当前位置：</dt>
+              <dd><a href="javascript:;">{{category.title}}</a></dd>
+              <dd>{{title}}</dd>
+            </dl>
+          </div>
+          <h2 class="title">
+            <a href="javascript:;">{{content}}</a>
+          </h2>
+          <div class="meta">
+            <span>{{author.nickName}} 发布于 {{createAt.substr(0,10)}}</span>
+            <span>分类: <a href="javascript:;">{{category.title}}</a></span>
+            <span>阅读: ({{meta.views}})</span>
+            <span>评论: ({{meta.comments}})</span>
+            <a href="javascript:;" id="like">点赞</a>
+          </div>
+  </script>
+  <!-- 随机文章 -->
+  <script type="text/html" id="random">
+    {{each data}}
+          <li>
+            <a href="detail.html?id={{$value._id}}">
+              <p class="title">{{$value.title}}</p>
+              <p class="reading">阅读({{$value.meta.views}})</p>
+              <div class="pic">
+                <img src="{{$value.thumbnail}}" alt="">
+              </div>
+            </a>
+          </li>
+    {{/each}}
+</script>
+  <!-- 获取最新评论 -->
+  <script type="text/html" id="chat">
+  {{each data}}
+    <li>
+      <a href="detail.html?id={{$value.post}}">
+        <div class="avatar">
+          <img src="{{$value.author.avatar}}" alt="">
+        </div>
+        <div class="txt">
+          <p>
+            <span>{{$value.author.nickName}}</span>{{$value.createAt.substr(0,10)}}说:
+          </p>
+          <p>{{$value.content}}</p>
+        </div>
+      </a>
+    </li>
+    {{/each}}
+</script>
+  <!-- 热门推荐 -->
+  <script type="text/html" id="hot">
+    <h3>热门推荐</h3>
+    <ul>
+    {{each data}}
+        <li>
+          <a href="detail.html?id={{$value._id}}">
+            <img src="{{$value.thumbnail}}" alt="">
+            <span>{{$value.title}}</span>
+          </a>
+        </li>
+    {{/each}}
+     </ul>
+  </script>
+  <!-- 评论模块 -->
+  <script type="text/html" id="commentTpl">
+    <style type="text/css">
+      .comment{
+        margin-bottom:20px;
+      }
+      .comment textarea{
+        box-sizing:border-box;
+        padding:10px;
+        width:100%;
+        height:80px;
+        display:block;
+      }
+      .comment input{
+        width:100px;
+        height:30px;
+        margin-top:10px;
+      }
+    </style>
+    <div class="comment">
+      <form>
+        <textarea></textarea>
+        <input type="submit" value="提交评论">
+      </form>
+    </div>
+  </script>
+  <script src="/login/status"></script>
+  <script>
+    var review;
+    //通过分类ID查找出相关文章
+    // console.log(cid);
+    $.ajax({
+      type: 'get',
+      url: '/posts/' + cid,
+      success: function (result) {
+        // console.log(result);
+        var html = template('posthtml', result);
+        document.querySelector('.article').innerHTML = html
+      }
+    })
+
+    // 热门文章
+    $.ajax({
+      type: 'get',
+      url: '/posts/recommend',
+      success: function (result) {
+        // console.log(result);
+        var html = template('hot', { data: result });
+        document.querySelector('.hots').innerHTML = html;
+      }
+    })
+
+    //点赞
+    $('.article').on('click', '#like', function () {
+      $.ajax({
+        type: 'post',
+        url: '/posts/fabulous/' + cid,
+        success: function () {
+        }
+      })
+    })
+
+    //获取网站设置
+    $.ajax({
+      type: 'get',
+      url: 'settings',
+      success: function (result) {
+        // console.log(result);
+        review = result.review;
+        if (result.comment) {
+          var html = template('commentTpl');
+          $('#comment').html(html);
+        }
+      }
+    })
+
+    // //上传评论
+    // $('#comment').on('submit', 'form', function () {
+    //   // var content = $(this).find('textarea').val();
+    //   var state;
+    //   if (review) {
+    //     state = 0;
+    //   } else {
+    //     state = 1;
+    //   }
+    //   $.ajax({
+    //     type: 'post',
+    //     url: '/comments',
+    //     data: {
+    //       state,
+    //       author:userId,
+    //       post: cid
+    //     },
+    //     success: function () {
+    //       console.log(1);
+    //     }
+    //   })
+
+    // })
+  </script>
+  <script src="./assets/js/random.js"></script>
+  <script src="./assets/js/public.js"></script>
 </body>
+
 </html>

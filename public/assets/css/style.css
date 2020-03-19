@@ -474,6 +474,7 @@ a {
   text-decoration: none;
 }
 
+
 img {
   display: block;
   width: 100%;
@@ -914,11 +915,14 @@ img {
 .content .panel .head {
   height: 30px;
   line-height: 1;
-  padding: 5px 0;
+  padding: 2px 0;
   margin: 8px 0 10px 0;
   box-sizing: border-box;
   font-size: 22px;
   color: #444;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .content .panel .head a {

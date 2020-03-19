@@ -44,7 +44,7 @@ $.ajax({
   type: 'get',
   url: '/users/' + userId,
   success: function (result) {
-    console.log(result);
+    // console.log(result);
     $('.profile .avatar').attr('src', result.avatar);
     $('.profile .name').text(result.nickName);
   }

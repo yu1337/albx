@@ -41,6 +41,7 @@ $('form').on('click', '#btnAdd', function () {
         url: '/slides',
         data: datas,
         success: function (result) {
+            console.log(result); 
             userArr.push(result);
             render();
             $('form').find('img').hide();
@@ -60,7 +61,6 @@ $('tbody').on('click', '.delete', function () {
                 id: id
             },
             success: function (result) {
-                alert('删除成功');
                 var index = userArr.findIndex(item => item._id == result._id);
                 userArr.splice(index, 1);
                 render();
