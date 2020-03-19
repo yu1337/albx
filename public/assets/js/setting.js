@@ -43,7 +43,7 @@ $.ajax({
     type: 'get',
     url: '/settings',
     success: function (result) {
-        console.log(result);
+        // console.log(result);
         $('form img').attr('src', result.logo);
         $('#site_name').val(result.title);
         $('#site_description').val(result.description);
