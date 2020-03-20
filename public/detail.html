@@ -12,7 +12,7 @@
     return -1;
   }
   if (cid == -1) {
-    location.reload = '/index.html'
+    location.href = 'index.html'
   }
 </script>
 
@@ -25,6 +25,32 @@
   <title>阿里百秀-发现生活，发现美!</title>
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/vendors/font-awesome/css/font-awesome.css">
+  <style>
+    .content .widgets {
+      background-color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .content .widgets ul li img {
+      width: 40px;
+      height: 40px;
+
+      margin: 20px 10px;
+    }
+
+    /* .content .widgets ul li .avatar{
+      margin: 30px 10px;
+    }
+*/
+    .content .widgets ul li .txt {
+      margin-left: 80px;
+      margin-top: -50px;
+    }
+
+    .content .widgets ul li a {
+      color: black;
+    }
+  </style>
 </head>
 
 <body>
@@ -64,7 +90,7 @@
       </div>
       <div class="widgets">
         <h4>最新评论</h4>
-        <ul class="body discuz">
+        <ul class="body discuz" id="discuz">
 
         </ul>
       </div>
@@ -76,6 +102,13 @@
 
       <div id="comment">
 
+      </div>
+
+      <div class="widgets">
+        <h4>最新评论</h4>
+        <ul class="body discuz" id="currentChat">
+
+        </ul>
       </div>
 
       <div class="panel hots">
@@ -130,6 +163,7 @@
         <div class="avatar">
           <img src="{{$value.author.avatar}}" alt="">
         </div>
+        
         <div class="txt">
           <p>
             <span>{{$value.author.nickName}}</span>{{$value.createAt.substr(0,10)}}说:
@@ -137,7 +171,7 @@
           <p>{{$value.content}}</p>
         </div>
       </a>
-    </li>
+    </li><hr>
     {{/each}}
 </script>
   <!-- 热门推荐 -->
@@ -180,82 +214,12 @@
       </form>
     </div>
   </script>
-  <script src="/login/status"></script>
-  <script>
-    var review;
-    //通过分类ID查找出相关文章
-    // console.log(cid);
-    $.ajax({
-      type: 'get',
-      url: '/posts/' + cid,
-      success: function (result) {
-        // console.log(result);
-        var html = template('posthtml', result);
-        document.querySelector('.article').innerHTML = html
-      }
-    })
-
-    // 热门文章
-    $.ajax({
-      type: 'get',
-      url: '/posts/recommend',
-      success: function (result) {
-        // console.log(result);
-        var html = template('hot', { data: result });
-        document.querySelector('.hots').innerHTML = html;
-      }
-    })
-
-    //点赞
-    $('.article').on('click', '#like', function () {
-      $.ajax({
-        type: 'post',
-        url: '/posts/fabulous/' + cid,
-        success: function () {
-        }
-      })
-    })
-
-    //获取网站设置
-    $.ajax({
-      type: 'get',
-      url: 'settings',
-      success: function (result) {
-        // console.log(result);
-        review = result.review;
-        if (result.comment) {
-          var html = template('commentTpl');
-          $('#comment').html(html);
-        }
-      }
-    })
-
-    // //上传评论
-    // $('#comment').on('submit', 'form', function () {
-    //   // var content = $(this).find('textarea').val();
-    //   var state;
-    //   if (review) {
-    //     state = 0;
-    //   } else {
-    //     state = 1;
-    //   }
-    //   $.ajax({
-    //     type: 'post',
-    //     url: '/comments',
-    //     data: {
-    //       state,
-    //       author:userId,
-    //       post: cid
-    //     },
-    //     success: function () {
-    //       console.log(1);
-    //     }
-    //   })
-
-    // })
-  </script>
-  <script src="./assets/js/random.js"></script>
   <script src="./assets/js/public.js"></script>
+  <script src="./assets/js/random.js"></script>
+  <script src="./assets/js/detail.js"></script>
+
+
+
 </body>
 
 </html>
